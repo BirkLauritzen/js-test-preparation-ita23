@@ -7,10 +7,15 @@
  * const myBook = createBook();
  * console.log(myBook.title); // Outputs the title of the book
  */
-function createBook() {
-
+function createBook(title, author, year) {
+    return {
+        title: "Bob",
+        author: "Lars",
+        year: 2023
+    };
 }
 
+const myBook = createBook();
 
 /**
  * This function finds a book by its author from a given array of books.
@@ -24,8 +29,16 @@ function createBook() {
  * console.log(result); // Outputs {title: "Sample", author: "John Doe", year: 2020}
  */
 function findBookByAuthor(books, author) {
-
+    return books.find(book => book.author === author);
 }
+
+const books = [
+    {title: 'Harry Potter', author: 'Rowling', year: 2002},
+    {title: 'LOTR', author: 'Tolkien', year: 1950},
+    {title: 'GOT', author: 'Martin', year: 2000},
+];
+
+const findMyBook = findBookByAuthor(books, 'Tolkien');
 
 
 /**
@@ -40,6 +53,14 @@ function findBookByAuthor(books, author) {
  * console.log(oldBooks); // Outputs {title: "A", year: 1990}
  */
 function getOlderBooks(books, year) {
-
+    return books.filter(book => book.year <= year);
 }
 
+const oldBooks = [
+    {title: 'Harry Potter', author: 'Rowling', year: 2002},
+    {title: 'LOTR', author: 'Tolkien', year: 1950},
+    {title: 'GOT', author: 'Martin', year: 2000},
+    {title: 'New Book', author: 'Birk', year: 2023},
+];
+
+const findOldBooks = getOlderBooks(oldBooks, 2001)
